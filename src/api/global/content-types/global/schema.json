@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "global"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteTitle": {
+      "type": "string",
+      "default": "site title"
+    },
+    "siteDescription": {
+      "type": "string",
+      "default": "site description",
+      "required": true
+    }
+  }
+}
