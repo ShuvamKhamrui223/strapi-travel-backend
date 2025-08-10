@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_common_section_header_contents",
+  "info": {
+    "displayName": "sectionHeaderContent"
+  },
+  "options": {},
+  "attributes": {
+    "backgroundTitle": {
+      "type": "string"
+    },
+    "foregroundTitle": {
+      "type": "string"
+    },
+    "foregroundSutitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

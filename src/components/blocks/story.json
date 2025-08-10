@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_blocks_stories",
+  "info": {
+    "displayName": "story"
+  },
+  "options": {},
+  "attributes": {
+    "ourStory": {
+      "type": "component",
+      "component": "common.section-header-content",
+      "repeatable": false
+    },
+    "storyDescription": {
+      "type": "string"
+    },
+    "storyBanner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_blocks_ctas",
+  "info": {
+    "displayName": "cta"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "this is a cta title"
+    },
+    "description": {
+      "type": "string"
+    },
+    "ctaLink": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "isBackgroundImageSticky": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

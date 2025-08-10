@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_links",
+  "info": {
+    "displayName": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "link title"
+    },
+    "url": {
+      "type": "string"
+    },
+    "isVisible": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

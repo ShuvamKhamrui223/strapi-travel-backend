@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_heroes",
+  "info": {
+    "displayName": "hero"
+  },
+  "options": {},
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "hero title"
+    },
+    "heroDescription": {
+      "type": "string"
+    },
+    "heroBanner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    }
+  },
+  "config": {}
+}

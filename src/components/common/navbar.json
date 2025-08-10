@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_common_navbars",
+  "info": {
+    "displayName": "navbar"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "navlinks": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

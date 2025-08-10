@@ -13,12 +13,18 @@
   "attributes": {
     "siteTitle": {
       "type": "string",
-      "default": "site title"
+      "default": "site title",
+      "required": true
     },
     "siteDescription": {
       "type": "string",
       "default": "site description",
       "required": true
+    },
+    "navbar": {
+      "type": "component",
+      "component": "common.navbar",
+      "repeatable": false
     }
   }
 }
