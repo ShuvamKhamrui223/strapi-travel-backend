@@ -1,11 +1,11 @@
 {
-  "collectionName": "components_blocks_stories",
+  "collectionName": "components_blocks_our_missions",
   "info": {
-    "displayName": "story"
+    "displayName": "our mission"
   },
   "options": {},
   "attributes": {
-    "story": {
+    "ourMission": {
       "type": "component",
       "component": "common.section-with-image",
       "repeatable": false

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_common_section_with_images",
+  "info": {
+    "displayName": "section with image"
+  },
+  "options": {},
+  "attributes": {
+    "sectionHeaderSectionWithImage": {
+      "type": "component",
+      "component": "common.section-header-content",
+      "repeatable": false,
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "sectionMedia": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "imageOnleft": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

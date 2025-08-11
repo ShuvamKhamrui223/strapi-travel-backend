@@ -10,5 +10,19 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "contactHeader": {
+      "type": "component",
+      "component": "common.section-header-content",
+      "repeatable": false
+    },
+    "contactBlockTitle": {
+      "type": "string"
+    },
+    "contactDetails": {
+      "type": "component",
+      "component": "common.contact-details",
+      "repeatable": true
+    }
+  }
 }

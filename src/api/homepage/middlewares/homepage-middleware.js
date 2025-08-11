@@ -6,23 +6,20 @@
 
 module.exports = (config, { strapi }) => {
   // Add your own logic here.
-  // mug 100 buli 100 sorser tel 500 chicken 2
-  const homepageQuery = {
+  const homepagePopulateQuery = {
     blocks: {
       on: {
         "blocks.hero": {
           populate: {
-            heroBannerImage: {
-              fields: ["url", "alternativeText", "documentId"],
-            },
-            exploreButton: true,
+            heroBanner: { fields: ["url", "documentId", "alternativeText"] },
           },
         },
+        "blocks.cta": {populate:{ctaLink:true,backgroundImage:{fields:["url","documentId","alternativeText"]}}},
       },
     },
   };
   return async (ctx, next) => {
-    ctx.query.populate = homepageQuery;
+    ctx.query.populate = homepagePopulateQuery;
     strapi.log.info("In homepage-middleware middleware.");
 
     await next();

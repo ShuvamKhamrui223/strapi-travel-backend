@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_testimonials",
+  "info": {
+    "displayName": "testimonials"
+  },
+  "options": {},
+  "attributes": {
+    "testimonialHeader": {
+      "type": "component",
+      "component": "common.section-header-content",
+      "repeatable": false
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
+    }
+  },
+  "config": {}
+}

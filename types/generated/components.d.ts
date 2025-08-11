@@ -29,18 +29,62 @@ export interface BlocksHero extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksOurMission extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_our_missions';
+  info: {
+    displayName: 'our mission';
+  };
+  attributes: {
+    ourMission: Schema.Attribute.Component<'common.section-with-image', false>;
+  };
+}
+
 export interface BlocksStory extends Struct.ComponentSchema {
   collectionName: 'components_blocks_stories';
   info: {
     displayName: 'story';
   };
   attributes: {
-    ourStory: Schema.Attribute.Component<
+    story: Schema.Attribute.Component<'common.section-with-image', false>;
+  };
+}
+
+export interface BlocksTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_testimonials';
+  info: {
+    displayName: 'testimonials';
+  };
+  attributes: {
+    testimonialHeader: Schema.Attribute.Component<
       'common.section-header-content',
       false
     >;
-    storyBanner: Schema.Attribute.Media<'images' | 'videos'>;
-    storyDescription: Schema.Attribute.String;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+  };
+}
+
+export interface CommonContactDetails extends Struct.ComponentSchema {
+  collectionName: 'components_common_contact_details';
+  info: {
+    displayName: 'contactDetails';
+  };
+  attributes: {
+    info: Schema.Attribute.String;
+    infoLabel: Schema.Attribute.String;
+  };
+}
+
+export interface CommonContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_common_contact_infos';
+  info: {
+    displayName: 'contactInfoBlock';
+  };
+  attributes: {
+    contactInfoTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'contact info'>;
   };
 }
 
@@ -79,15 +123,40 @@ export interface CommonSectionHeaderContent extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonSectionWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_common_section_with_images';
+  info: {
+    displayName: 'section with image';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    imageOnleft: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    sectionHeaderSectionWithImage: Schema.Attribute.Component<
+      'common.section-header-content',
+      false
+    > &
+      Schema.Attribute.Required;
+    sectionMedia: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.cta': BlocksCta;
       'blocks.hero': BlocksHero;
+      'blocks.our-mission': BlocksOurMission;
       'blocks.story': BlocksStory;
+      'blocks.testimonials': BlocksTestimonials;
+      'common.contact-details': CommonContactDetails;
+      'common.contact-info': CommonContactInfo;
       'common.link': CommonLink;
       'common.navbar': CommonNavbar;
       'common.section-header-content': CommonSectionHeaderContent;
+      'common.section-with-image': CommonSectionWithImage;
     }
   }
 }

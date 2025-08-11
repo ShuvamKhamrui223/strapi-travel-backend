@@ -11,12 +11,22 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "pageDescription": {
+      "type": "string",
+      "required": true
+    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
         "blocks.hero",
+        "blocks.cta",
+        "blocks.testimonials",
         "blocks.story",
-        "blocks.cta"
+        "blocks.our-mission"
       ]
     }
   }

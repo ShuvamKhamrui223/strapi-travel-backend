@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_common_contact_infos",
+  "info": {
+    "displayName": "contactInfoBlock"
+  },
+  "options": {},
+  "attributes": {
+    "contactInfoTitle": {
+      "type": "string",
+      "default": "contact info"
+    }
+  },
+  "config": {}
+}
