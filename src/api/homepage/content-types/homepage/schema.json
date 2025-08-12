@@ -26,7 +26,10 @@
         "blocks.cta",
         "blocks.testimonials",
         "blocks.story",
-        "blocks.our-mission"
+        "blocks.our-mission",
+        "blocks.team-members",
+        "blocks.blog",
+        "blocks.trip"
       ]
     }
   }

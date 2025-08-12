@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_team_members",
+  "info": {
+    "displayName": "teamMembers"
+  },
+  "options": {},
+  "attributes": {
+    "teamHeader": {
+      "type": "component",
+      "component": "common.section-header-content",
+      "repeatable": false
+    },
+    "team_members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-member.team-member"
+    }
+  },
+  "config": {}
+}

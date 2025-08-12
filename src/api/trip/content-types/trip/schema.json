@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trips",
+  "info": {
+    "singularName": "trip",
+    "pluralName": "trips",
+    "displayName": "trip"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tripName": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 20,
+      "required": true,
+      "unique": true
+    },
+    "price": {
+      "type": "biginteger",
+      "required": true,
+      "min": "01"
+    },
+    "coverImgae": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tripDescription": {
+      "type": "text",
+      "minLength": 10,
+      "maxLength": 150,
+      "required": true
+    },
+    "tripBannerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tripContent": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_common_social_links",
+  "info": {
+    "displayName": "social links"
+  },
+  "options": {},
+  "attributes": {
+    "platformName": {
+      "type": "string",
+      "required": true
+    },
+    "platformIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
