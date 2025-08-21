@@ -37,6 +37,13 @@ export interface BlocksHero extends Struct.ComponentSchema {
   };
   attributes: {
     heroBanner: Schema.Attribute.Media<'images' | 'videos'>;
+    heroButtons: Schema.Attribute.Component<'common.link', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
     heroDescription: Schema.Attribute.String;
     heroTitle: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'hero title'>;
@@ -66,7 +73,7 @@ export interface BlocksStory extends Struct.ComponentSchema {
 export interface BlocksTeamMembers extends Struct.ComponentSchema {
   collectionName: 'components_blocks_team_members';
   info: {
-    displayName: 'teamMembers';
+    displayName: 'team-members';
   };
   attributes: {
     team_members: Schema.Attribute.Relation<
@@ -144,6 +151,10 @@ export interface CommonLink extends Struct.ComponentSchema {
   attributes: {
     isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     label: Schema.Attribute.String & Schema.Attribute.DefaultTo<'link title'>;
+    style: Schema.Attribute.Enumeration<
+      ['ghost', 'filled', 'outlined', 'fill-on-hover', 'outline-on-hover']
+    > &
+      Schema.Attribute.DefaultTo<'ghost'>;
     url: Schema.Attribute.String;
   };
 }
@@ -166,7 +177,7 @@ export interface CommonSectionHeaderContent extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundTitle: Schema.Attribute.String;
-    foregroundSutitle: Schema.Attribute.String;
+    foregroundSubtitle: Schema.Attribute.String;
     foregroundTitle: Schema.Attribute.String;
   };
 }
@@ -181,12 +192,12 @@ export interface CommonSectionWithImage extends Struct.ComponentSchema {
     imageOnleft: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
-    sectionHeaderSectionWithImage: Schema.Attribute.Component<
+    sectionMedia: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+    sectionWithImageHeader: Schema.Attribute.Component<
       'common.section-header-content',
       false
     > &
-      Schema.Attribute.Required;
-    sectionMedia: Schema.Attribute.Media<'images' | 'videos'> &
       Schema.Attribute.Required;
   };
 }

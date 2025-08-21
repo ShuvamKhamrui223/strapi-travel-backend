@@ -15,6 +15,17 @@
     "isVisible": {
       "type": "boolean",
       "default": true
+    },
+    "style": {
+      "type": "enumeration",
+      "default": "ghost",
+      "enum": [
+        "ghost",
+        "filled",
+        "outlined",
+        "fill-on-hover",
+        "outline-on-hover"
+      ]
     }
   },
   "config": {}

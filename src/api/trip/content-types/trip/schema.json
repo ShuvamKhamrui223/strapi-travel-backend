@@ -23,7 +23,7 @@
       "required": true,
       "min": "01"
     },
-    "coverImgae": {
+    "coverImage": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -47,6 +47,11 @@
     },
     "tripContent": {
       "type": "richtext"
+    },
+    "isPricePerPerson": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

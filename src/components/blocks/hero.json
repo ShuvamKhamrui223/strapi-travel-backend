@@ -19,6 +19,12 @@
         "images",
         "videos"
       ]
+    },
+    "heroButtons": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": true,
+      "max": 2
     }
   },
   "config": {}

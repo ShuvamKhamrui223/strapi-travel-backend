@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "sectionHeaderSectionWithImage": {
+    "sectionWithImageHeader": {
       "type": "component",
       "component": "common.section-header-content",
       "repeatable": false,

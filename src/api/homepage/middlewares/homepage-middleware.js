@@ -12,9 +12,66 @@ module.exports = (config, { strapi }) => {
         "blocks.hero": {
           populate: {
             heroBanner: { fields: ["url", "documentId", "alternativeText"] },
+            heroButtons: true,
           },
         },
-        "blocks.cta": {populate:{ctaLink:true,backgroundImage:{fields:["url","documentId","alternativeText"]}}},
+        "blocks.story": {
+          populate: {
+            story: {
+              populate: {
+                sectionMedia: {
+                  fields: ["url", "alternativeText", "documentId"],
+                },
+                sectionWithImageHeader: true,
+              },
+            },
+          },
+        },
+        "blocks.trip": {
+          populate: {
+            trips: {
+              populate: {
+                coverImage: {
+                  fields: ["url", "alternativeText", "documentId"],
+                },
+                tripBannerImage: {
+                  fields: ["url", "alternativeText", "documentId"],
+                },
+              },
+            },
+            tripSectionHeader: true,
+          },
+        },
+        "blocks.team-members": {
+          populate: {
+            teamHeader: true,
+            team_members: {
+              populate: {
+                memberProfilePic: {
+                  fields: ["url", "documentId", "alternativeText"],
+                },
+                socialLinks: {
+                  populate: {
+                    platformIcon: {
+                      fields: ["url", "documentId", "alternativeText"],
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        "blocks.testimonials": {
+          populate: { testimonials: true },
+        },
+        "blocks.cta": {
+          populate: {
+            ctaLink: true,
+            backgroundImage: {
+              fields: ["url", "documentId", "alternativeText"],
+            },
+          },
+        },
       },
     },
   };

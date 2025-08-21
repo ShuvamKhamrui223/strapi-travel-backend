@@ -11,7 +11,7 @@
     "foregroundTitle": {
       "type": "string"
     },
-    "foregroundSutitle": {
+    "foregroundSubtitle": {
       "type": "string"
     }
   },
