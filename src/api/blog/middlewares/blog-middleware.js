@@ -7,13 +7,26 @@
 module.exports = (config, { strapi }) => {
   // Add your own logic here.
   const blogPopulate = {
-    populate: {
-      thumbnail: { fields: ["documentId", "url", "alternativeText"] },
-    },
+    thumbnail: { fields: ["url", "documentId", "alternativeText"] },
+    // populate: {
+    // },
   };
   return async (ctx, next) => {
+    // ctx.query.populate = blogPopulate;
     strapi.log.info("In blog-middleware middleware.");
-    ctx.query.populate = blogPopulate;
+    console.log(ctx);
+    // if (ctx.params.id || ctx.params.slug) {
+    //   let blogpost = {};
+    //   if (ctx.params.id) {
+    //     blogpost = await strapi.entityService.findOne(
+    //       "api::blog.blog",
+    //       ctx.params.id,
+    //       { populate: { thumbnail: { fields: ["url"] } } }
+    //     );
+    //   }
+    //   ctx.state.blog = blogpost;
+    // }
+
     await next();
   };
 };

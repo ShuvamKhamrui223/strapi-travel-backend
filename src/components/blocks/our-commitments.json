@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_our_commitments",
+  "info": {
+    "displayName": "our-commitments"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "commitmentCollapsable": {
+      "type": "component",
+      "component": "common.collapsable",
+      "repeatable": true
+    },
+    "longImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

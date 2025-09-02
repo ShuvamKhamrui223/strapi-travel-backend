@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_results",
+  "info": {
+    "displayName": "result"
+  },
+  "options": {},
+  "attributes": {
+    "resultHeader": {
+      "type": "component",
+      "component": "common.section-header",
+      "repeatable": false
+    },
+    "results": {
+      "type": "component",
+      "component": "common.result-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

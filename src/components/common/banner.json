@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_common_banners",
+  "info": {
+    "displayName": "banner"
+  },
+  "options": {},
+  "attributes": {
+    "bannerContent": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 50
+    }
+  },
+  "config": {}
+}

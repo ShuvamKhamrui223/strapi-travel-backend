@@ -23,13 +23,11 @@
       "type": "dynamiczone",
       "components": [
         "blocks.hero",
-        "blocks.cta",
-        "blocks.testimonials",
-        "blocks.story",
-        "blocks.our-mission",
+        "blocks.our-commitments",
+        "blocks.result",
         "blocks.team-members",
-        "blocks.blog",
-        "blocks.trip"
+        "blocks.testimonials",
+        "blocks.join-our-team"
       ]
     }
   }

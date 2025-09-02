@@ -12,19 +12,24 @@
     "heroDescription": {
       "type": "string"
     },
-    "heroBanner": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
     "heroButtons": {
       "type": "component",
       "component": "common.link",
       "repeatable": true,
       "max": 2
+    },
+    "badge": {
+      "type": "component",
+      "component": "common.badge",
+      "repeatable": false
+    },
+    "floatingImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

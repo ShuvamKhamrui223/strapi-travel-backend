@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_common_result_cards",
+  "info": {
+    "displayName": "result-card"
+  },
+  "options": {},
+  "attributes": {
+    "cardIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "result": {
+      "type": "string",
+      "required": true
+    },
+    "resultTitle": {
+      "type": "string",
+      "required": true
+    },
+    "resultDescription": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

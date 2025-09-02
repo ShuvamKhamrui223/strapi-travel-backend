@@ -7,7 +7,7 @@
   "attributes": {
     "testimonialHeader": {
       "type": "component",
-      "component": "common.section-header-content",
+      "component": "common.section-header",
       "repeatable": false
     },
     "testimonials": {

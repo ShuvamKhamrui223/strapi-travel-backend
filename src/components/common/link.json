@@ -22,10 +22,23 @@
       "enum": [
         "ghost",
         "filled",
-        "outlined",
-        "fill-on-hover",
-        "outline-on-hover"
+        "outlined"
       ]
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "iconOnLeft": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

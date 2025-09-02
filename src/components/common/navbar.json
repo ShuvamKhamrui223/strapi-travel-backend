@@ -16,6 +16,11 @@
       "type": "component",
       "component": "common.link",
       "repeatable": true
+    },
+    "getStartedLink": {
+      "type": "component",
+      "component": "common.link",
+      "repeatable": false
     }
   },
   "config": {}

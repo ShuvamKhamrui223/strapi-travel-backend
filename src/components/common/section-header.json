@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_section_headers",
+  "info": {
+    "displayName": "sectionHeader"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

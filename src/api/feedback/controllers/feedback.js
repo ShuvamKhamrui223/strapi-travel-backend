@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * trip controller
+ * feedback controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::trip.trip');
+module.exports = createCoreController('api::feedback.feedback');

@@ -21,9 +21,24 @@
       "default": "site description",
       "required": true
     },
+    "headerBanner": {
+      "type": "component",
+      "component": "common.banner",
+      "repeatable": false
+    },
     "navbar": {
       "type": "component",
       "component": "common.navbar",
+      "repeatable": false
+    },
+    "globalCta": {
+      "type": "component",
+      "component": "blocks.cta",
+      "repeatable": false
+    },
+    "footer": {
+      "type": "component",
+      "component": "common.footer",
       "repeatable": false
     }
   }

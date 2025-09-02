@@ -9,9 +9,6 @@
       "type": "string",
       "default": "this is a cta title"
     },
-    "description": {
-      "type": "string"
-    },
     "ctaLink": {
       "type": "component",
       "component": "common.link",

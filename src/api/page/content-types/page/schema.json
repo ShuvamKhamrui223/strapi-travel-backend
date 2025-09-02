@@ -11,15 +11,23 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "pageDescription": {
+      "type": "string",
+      "required": true
+    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.testimonials",
-        "blocks.story",
-        "blocks.our-mission",
-        "blocks.hero",
         "blocks.cta"
       ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "pageTitle"
     }
   }
 }

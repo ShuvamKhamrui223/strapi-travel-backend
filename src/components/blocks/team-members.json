@@ -7,7 +7,7 @@
   "attributes": {
     "teamHeader": {
       "type": "component",
-      "component": "common.section-header-content",
+      "component": "common.section-header",
       "repeatable": false
     },
     "team_members": {

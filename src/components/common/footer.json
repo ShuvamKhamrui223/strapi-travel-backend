@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_common_footers",
+  "info": {
+    "displayName": "footer"
+  },
+  "options": {},
+  "attributes": {
+    "footerLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "footerMenu": {
+      "type": "json"
+    },
+    "showNewsLetterForm": {
+      "type": "boolean",
+      "default": false
+    },
+    "footerNewsletter": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "showNewsLetterForm"
+            },
+            true
+          ]
+        }
+      },
+      "component": "blocks.newsletter-form",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

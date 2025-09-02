@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_blocks_join_our_teams",
+  "info": {
+    "displayName": "join-our-team"
+  },
+  "options": {},
+  "attributes": {
+    "jobsHeader": {
+      "type": "component",
+      "component": "common.section-header",
+      "repeatable": false
+    },
+    "job_openings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job-opening.job-opening"
+    },
+    "floatingImages": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

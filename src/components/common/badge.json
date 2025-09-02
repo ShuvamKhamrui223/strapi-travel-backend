@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_common_badges",
+  "info": {
+    "displayName": "badge"
+  },
+  "options": {},
+  "attributes": {
+    "badgeTitle": {
+      "type": "string"
+    },
+    "badgeIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "iconOnLeft": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

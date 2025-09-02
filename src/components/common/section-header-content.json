@@ -5,13 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "backgroundTitle": {
+    "title": {
       "type": "string"
     },
-    "foregroundTitle": {
-      "type": "string"
-    },
-    "foregroundSubtitle": {
+    "subtitle": {
       "type": "string"
     }
   },

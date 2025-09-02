@@ -3,7 +3,7 @@
 /**
  * `homepage-middleware` middleware
  */
-
+const imagePopulate = { fields: ["url", "alternativeText"] };
 module.exports = (config, { strapi }) => {
   // Add your own logic here.
   const homepagePopulateQuery = {
@@ -11,65 +11,27 @@ module.exports = (config, { strapi }) => {
       on: {
         "blocks.hero": {
           populate: {
-            heroBanner: { fields: ["url", "documentId", "alternativeText"] },
             heroButtons: true,
+            floatingImages: imagePopulate,
+            badge: { populate: { badgeIcon: imagePopulate } },
           },
         },
-        "blocks.story": {
+        "blocks.our-commitments": {
           populate: {
-            story: {
-              populate: {
-                sectionMedia: {
-                  fields: ["url", "alternativeText", "documentId"],
-                },
-                sectionWithImageHeader: true,
-              },
-            },
+            commitmentCollapsable: true,
+            longImage: imagePopulate,
           },
         },
-        "blocks.trip": {
+        "blocks.result": {
           populate: {
-            trips: {
-              populate: {
-                coverImage: {
-                  fields: ["url", "alternativeText", "documentId"],
-                },
-                tripBannerImage: {
-                  fields: ["url", "alternativeText", "documentId"],
-                },
-              },
-            },
-            tripSectionHeader: true,
+            resultHeader: true,
+            results: { populate: { cardIcon: imagePopulate } },
           },
         },
         "blocks.team-members": {
           populate: {
             teamHeader: true,
-            team_members: {
-              populate: {
-                memberProfilePic: {
-                  fields: ["url", "documentId", "alternativeText"],
-                },
-                socialLinks: {
-                  populate: {
-                    platformIcon: {
-                      fields: ["url", "documentId", "alternativeText"],
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-        "blocks.testimonials": {
-          populate: { testimonials: true },
-        },
-        "blocks.cta": {
-          populate: {
-            ctaLink: true,
-            backgroundImage: {
-              fields: ["url", "documentId", "alternativeText"],
-            },
+            team_members: { populate: { memberProfilePic: imagePopulate } },
           },
         },
       },

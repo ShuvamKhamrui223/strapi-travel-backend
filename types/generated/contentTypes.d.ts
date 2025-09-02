@@ -407,43 +407,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBlogCategoryBlogCategory
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'blog_categories';
-  info: {
-    displayName: 'blog category';
-    pluralName: 'blog-categories';
-    singularName: 'blog-category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    blogs: Schema.Attribute.Relation<'manyToMany', 'api::blog.blog'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::blog-category.blog-category'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 40;
-        minLength: 2;
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiBlogTagBlogTag extends Struct.CollectionTypeSchema {
   collectionName: 'blog_tags';
   info: {
@@ -492,10 +455,6 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
-    blog_categories: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::blog-category.blog-category'
-    >;
     blog_tags: Schema.Attribute.Relation<
       'manyToMany',
       'api::blog-tag.blog-tag'
@@ -561,6 +520,51 @@ export interface ApiContactpageContactpage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFeedbackFeedback extends Struct.CollectionTypeSchema {
+  collectionName: 'feedbacks';
+  info: {
+    displayName: 'feedback';
+    pluralName: 'feedbacks';
+    singularName: 'feedback';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    feedback_subject: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+        minLength: 5;
+      }>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::feedback.feedback'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visitor_email: Schema.Attribute.Email & Schema.Attribute.Required;
+    visitor_feedback: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 1000;
+        minLength: 10;
+      }>;
+    visitorname: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+        minLength: 4;
+      }>;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -575,6 +579,9 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footer: Schema.Attribute.Component<'common.footer', false>;
+    globalCta: Schema.Attribute.Component<'blocks.cta', false>;
+    headerBanner: Schema.Attribute.Component<'common.banner', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -609,13 +616,11 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.hero',
-        'blocks.cta',
-        'blocks.testimonials',
-        'blocks.story',
-        'blocks.our-mission',
+        'blocks.our-commitments',
+        'blocks.result',
         'blocks.team-members',
-        'blocks.blog',
-        'blocks.trip',
+        'blocks.testimonials',
+        'blocks.join-our-team',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -636,6 +641,42 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiJobOpeningJobOpening extends Struct.CollectionTypeSchema {
+  collectionName: 'job_openings';
+  info: {
+    displayName: 'job-opening';
+    pluralName: 'job-openings';
+    singularName: 'job-opening';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    applyLink: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    department: Schema.Attribute.Enumeration<
+      ['research and development', 'engineering']
+    > &
+      Schema.Attribute.Required;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    jobType: Schema.Attribute.Enumeration<['full-time', 'part-time']> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::job-opening.job-opening'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.Text & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
@@ -647,22 +688,17 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      [
-        'blocks.testimonials',
-        'blocks.story',
-        'blocks.our-mission',
-        'blocks.hero',
-        'blocks.cta',
-      ]
-    >;
+    blocks: Schema.Attribute.DynamicZone<['blocks.cta']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
+    pageDescription: Schema.Attribute.String & Schema.Attribute.Required;
+    pageTitle: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'pageTitle'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -690,15 +726,9 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
       'api::team-member.team-member'
     > &
       Schema.Attribute.Private;
-    memberBio: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 100;
-        minLength: 20;
-      }>;
     memberName: Schema.Attribute.String & Schema.Attribute.Required;
     memberProfilePic: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
-    socialLinks: Schema.Attribute.Component<'common.social-links', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -719,68 +749,27 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    feedback: Schema.Attribute.Text;
+    feedback: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::testimonial.testimonial'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    profilePicture: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTripTrip extends Struct.CollectionTypeSchema {
-  collectionName: 'trips';
-  info: {
-    displayName: 'trip';
-    pluralName: 'trips';
-    singularName: 'trip';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    coverImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    isPricePerPerson: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::trip.trip'> &
-      Schema.Attribute.Private;
-    price: Schema.Attribute.BigInteger &
+    rating: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          min: '01';
+          max: 5;
+          min: 1;
         },
-        string
-      >;
-    publishedAt: Schema.Attribute.DateTime;
-    tripBannerImage: Schema.Attribute.Media<'images'> &
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+    serviceName: Schema.Attribute.Enumeration<['solar energy service']> &
       Schema.Attribute.Required;
-    tripContent: Schema.Attribute.RichText;
-    tripDescription: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 150;
-        minLength: 10;
-      }>;
-    tripName: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 20;
-        minLength: 5;
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1297,16 +1286,16 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::author.author': ApiAuthorAuthor;
-      'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
       'api::blog-tag.blog-tag': ApiBlogTagBlogTag;
       'api::blog.blog': ApiBlogBlog;
       'api::contactpage.contactpage': ApiContactpageContactpage;
+      'api::feedback.feedback': ApiFeedbackFeedback;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::job-opening.job-opening': ApiJobOpeningJobOpening;
       'api::page.page': ApiPagePage;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
-      'api::trip.trip': ApiTripTrip;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -25,16 +25,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "memberBio": {
-      "type": "text",
-      "minLength": 20,
-      "maxLength": 100
-    },
-    "socialLinks": {
-      "type": "component",
-      "component": "common.social-links",
-      "repeatable": true
     }
   }
 }
